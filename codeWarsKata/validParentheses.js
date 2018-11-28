@@ -12,10 +12,16 @@ function validParentheses(parens){
       stack.pop();
     } else {
       // no prior open
-      stack.push(item)
+      stack.push(item);
     }
   });
-  if (stack.length > 0) return false;
   // if empty, we matched all
-  return true;
+  // if (stack.length > 0) return false;
+  // return true;
+  return stack.length === 0;
 }
+
+validParentheses('()()()'); // true
+validParentheses('()(())'); // true 
+validParentheses('()()('); // false
+validParentheses('()))'); // false  
