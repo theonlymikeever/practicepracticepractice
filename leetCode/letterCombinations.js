@@ -32,6 +32,11 @@ var letterCombinations = function(digits) {
   };
 
   let numStack = digits.split('');
+  // check if someone only  pressed one input
+  if (numStack.length === 1) {
+    return numberMap[numStack[0]];
+  }
+
   let combos = [];
   while(numStack.length) {
     let currentNum = numberMap[numStack.shift()];
