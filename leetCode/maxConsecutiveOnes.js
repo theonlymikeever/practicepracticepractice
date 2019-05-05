@@ -16,7 +16,21 @@
  * @return {number}
  */
 var findMaxConsecutiveOnes = function(nums) {
-
+  let max = 0;
+  // edge case: empty array
+  if (!nums.length) return 0;
+  // multi pointer pattern - back pointer will be starting 1
+  let j = 0;
+  let tempMax = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i]) tempMax+= 1;
+    else {
+      j = i; // reset pointer
+      tempMax = 0;
+    }
+    max = Math.max(max, tempMax);
+  }
+  return max;
 };
 
 const testInput = [1,1,0,1,1,1];
